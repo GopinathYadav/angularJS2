@@ -1,0 +1,35 @@
+<div>
+    <h1> User </h1>
+    <p>
+        <button class="btn btn-primary" on-click="openNewUserForm()"> Add User </button>
+    </p>
+
+    <div *ngIf="test">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tr *ngFor="let user of userList">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+
+                <td>
+                    <a [routerLink]="['/users/',user.id]" class="glyphicon glyphicon-pencil"></a>
+
+                </td>
+                <td>
+                    <a on-click="delete(user)" class="glyphicon glyphicon-remove"></a>
+                </td>
+
+
+            </tr>
+        </table>
+    </div>
+
+</div>

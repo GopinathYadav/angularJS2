@@ -1,0 +1,78 @@
+<div class="col-md-6 col-lg-6 well">
+    <h1> {{title}} </h1>
+    <form bind-formGroup="newUserForm">
+        <legend> User </legend>
+        <fieldset formGroupName="userGroupForm">
+            <div class="form-group">
+                <label for="name"> name </label>
+                <input class="form-control" formControlName="name" type="text">
+                <div *ngIf="newUserForm.controls.userGroupForm.controls.name.touched 
+                && newUserForm.controls.userGroupForm.controls.name.errors">
+                    <div class="alert alert-danger" *ngIf="newUserForm.controls.userGroupForm.controls.name.errors.required">
+                        Username is required
+                    </div>
+                    <div class="alert alert-danger" *ngIf="newUserForm.controls.userGroupForm.controls.name.errors.cannotContainSpace">
+                        Username can't contain empty space
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email"> email </label>
+                <input class="form-control" formControlName="email" type="text">
+
+
+                <div *ngIf="newUserForm.controls.userGroupForm.controls.email.touched 
+                && newUserForm.controls.userGroupForm.controls.email.errors">
+                    <div class="alert alert-danger" *ngIf="newUserForm.controls.userGroupForm.controls.email.errors.required">
+                        Email is required
+                    </div>
+                    <div class="alert alert-danger" *ngIf="newUserForm.controls.userGroupForm.controls.email.errors.InvalidEmail">
+                        Invalid email
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone"> phone </label>
+                <input class="form-control" formControlName="phone" type="text">
+            </div>
+
+
+
+
+        </fieldset>
+
+
+        <fieldset formGroupName="addressGroupForm">
+            <legend> Address </legend>
+            <div class="form-group">
+                <label for="street"> street </label>
+                <input class="form-control" formControlName="street" type="text">
+            </div>
+            <div class="form-group">
+                <label for="suite"> suit </label>
+                <input class="form-control" formControlName="suite" type="text">
+            </div>
+            <div class="form-group">
+                <label for="city"> city </label>
+                <input class="form-control" formControlName="city" type="text">
+            </div>
+            <div class="form-group">
+                <label for="zipCode"> ZipCode </label>
+                <input class="form-control" formControlName="zipCode" type="text">
+            </div>
+
+
+
+
+
+        </fieldset>
+
+        <button class="btn btn-primary" on-click="onSubmit()" bind-disabled="!newUserForm.valid" type="submit">submit </button>
+
+    </form>
+
+
+
+</div>
