@@ -8,14 +8,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export  class BasicHttpClientImpl implements BasicHttpClient<User>{
+export  class BasicHttpClientImpl<T> implements BasicHttpClient<T>{
 
   constructor( private httpClient :Http){
 
   }
 
 
-    get(url): Observable<User[]> {
+    get(url): Observable<T[]> {
         return this.httpClient.get(url)
         .map(this.extractData)
         
@@ -23,14 +23,14 @@ export  class BasicHttpClientImpl implements BasicHttpClient<User>{
  
    }
 
-  getOne(url): Observable<User> {
+  getOne(url): Observable<T> {
         return this.httpClient.get(url)
         .map(this.extractData)
         .catch(this.handleError)
  
    }
 
-   post(url,body:Object) : Observable<User>{
+   post(url,body:Object) : Observable<T>{
         let bodyString = JSON.stringify(body); // Stringify payload
         let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
         let options       = new RequestOptions({ headers: headers }); // Create a request option

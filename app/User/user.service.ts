@@ -13,7 +13,7 @@ export class UserService{
     userServiceURL='http://jsonplaceholder.typicode.com/'
 
 
-   constructor(private _httpClient:BasicHttpClientImpl){
+   constructor(private _httpClient:BasicHttpClientImpl<User>){
        
    }
     

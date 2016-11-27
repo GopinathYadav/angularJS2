@@ -74,14 +74,13 @@ export class UserComponent implements OnInit{
 
    onSubmit(){
     this.newUser = new User();
-    this.newUser.name = this.newUserForm.controls.userGroupForm.controls.name.value;
-    this.newUser.email = this.newUserForm.controls.userGroupForm.controls.email.value;
-    this.newUser.phone = this.newUserForm.controls.userGroupForm.controls.phone.value;
-
-    this.newUser.address.street = this.newUserForm.controls.addressGroupForm.controls.street.value;
-    this.newUser.address.suite = this.newUserForm.controls.addressGroupForm.controls.suite.value;
-    this.newUser.address.city = this.newUserForm.controls.addressGroupForm.controls.city.value;
-    this.newUser.address.zipcode = this.newUserForm.controls.addressGroupForm.controls.zipCode.value;
+    this.newUser.name = this.newUserForm.get('userGroupForm').get('name').value;
+    this.newUser.email = this.newUserForm.get('userGroupForm').get('email').value;
+    this.newUser.phone = this.newUserForm.get('userGroupForm').get('phone').value;
+    this.newUser.address.street = this.newUserForm.get('addressGroupForm').get('street').value;
+    this.newUser.address.suite = this.newUserForm.get('addressGroupForm').get('suite').value;
+    this.newUser.address.city = this.newUserForm.get('addressGroupForm').get('city').value;
+    this.newUser.address.zipcode = this.newUserForm.get('addressGroupForm').get('zipCode').value;
     this._userService.postUser(this.newUser).subscribe(user=>{
                    this.newUserForm.markAsPristine()
                    this._router.navigate(['users'])
