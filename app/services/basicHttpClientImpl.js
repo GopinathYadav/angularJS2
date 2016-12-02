@@ -17,6 +17,7 @@ require('rxjs/add/operator/catch');
 var BasicHttpClientImpl = (function () {
     function BasicHttpClientImpl(httpClient) {
         this.httpClient = httpClient;
+        this.obj = 'test';
     }
     BasicHttpClientImpl.prototype.get = function (url) {
         return this.httpClient.get(url)

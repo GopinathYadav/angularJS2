@@ -39,7 +39,8 @@ export class UserComponent implements OnInit{
       if( params["id"] != undefined){
                  this.newUser.id = params["id"]
                  this.title='Edit a User'
-                 this._userService.getUser(this.newUser.id) .subscribe(user =>{
+                 this._userService.getUser(this.newUser.id)
+                 .subscribe(user =>{
                  this.newUser = user
                  this.populateForm(this.newUser)
                     })         

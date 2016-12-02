@@ -13,7 +13,7 @@ export  class BasicHttpClientImpl<T> implements BasicHttpClient<T>{
   constructor( private httpClient :Http){
 
   }
-
+  obj = 'test'
 
     get(url): Observable<T[]> {
         return this.httpClient.get(url)

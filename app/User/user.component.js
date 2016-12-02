@@ -36,7 +36,8 @@ var UserComponent = (function () {
             if (params["id"] != undefined) {
                 _this.newUser.id = params["id"];
                 _this.title = 'Edit a User';
-                _this._userService.getUser(_this.newUser.id).subscribe(function (user) {
+                _this._userService.getUser(_this.newUser.id)
+                    .subscribe(function (user) {
                     _this.newUser = user;
                     _this.populateForm(_this.newUser);
                 });

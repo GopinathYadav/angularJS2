@@ -7,4 +7,5 @@ export interface BasicHttpClient<T>{
     getOne(url:String): Observable<T>
     get(url:String): Observable<T[]>
     post(url:String,body:Object): Observable<T>
+    obj : any
 }

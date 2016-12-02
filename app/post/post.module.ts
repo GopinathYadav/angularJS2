@@ -15,6 +15,7 @@ import { NgModule } from '@angular/core';
     declarations:[PostsComponent],
     providers: [PostService],
      imports:[BrowserModule,CommonModule, FormsModule, ReactiveFormsModule,RouterModule]
+     
 })
 
 
